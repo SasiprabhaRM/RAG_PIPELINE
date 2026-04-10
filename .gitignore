@@ -1,0 +1,42 @@
+# .gitignore
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Environment variables — NEVER commit this
+.env
+
+# ChromaDB store
+chroma_store/
+
+# Logs
+logs/
+*.log
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Mypy cache
+.mypy_cache/
+
+# Ruff cache
+.ruff_cache/
+
+# Pre-commit cache
+.pre-commit-cache/
+
+# Data files (optional — remove if you want to track them)
+data/

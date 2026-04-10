@@ -1,0 +1,42 @@
+loader:
+  chunk_encoding: utf-8
+
+chunker:
+  markdown_chunk_size: 1000
+  markdown_chunk_overlap: 150
+  semantic_breakpoint_threshold: 95
+
+embedding:
+  provider: bert
+  openai_model: text-embedding-3-small
+  bert_model: all-MiniLM-L6-v2
+
+chromadb:
+  persist_directory: ./chroma_store
+  collection_name: rag_collection
+
+retriever:
+  top_k: 10
+
+reranker:
+  model: cross-encoder/ms-marco-MiniLM-L-6-v2
+  top_k: 3
+
+llm:
+  provider: groq
+  model: llama-3.3-70b-versatile
+  temperature: 0.2
+  max_tokens: 1024
+
+router:
+  prompt: >
+    Given the user query below, classify it as either GENERAL
+    (answerable from general knowledge) or DOCUMENT (requires
+    looking up a specific file, data, or document).
+    Reply with only one word: GENERAL or DOCUMENT.
+    Query: {query}
+
+logging:
+  level: INFO
+  log_file: logs/app.log
+  format: "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
